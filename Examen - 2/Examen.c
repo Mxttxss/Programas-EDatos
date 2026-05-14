@@ -89,7 +89,7 @@ int main() {
         printf("1 - Insertar\n");
         printf("2 - Eliminar\n");
         printf("3 - Mostrar\n");
-        printf("4 -Salir\n");
+        printf("4 - Salir\n");
         printf("Eliga una pcion: ");
         scanf("%d", &opcion);
 
