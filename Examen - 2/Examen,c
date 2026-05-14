@@ -4,111 +4,119 @@
 
 struct Nodo {
     int n;
-    struct Nodo *Ptrant;
-    struct Nodo *Ptrsig;
+    struct Nodo *ant;
+    struct Nodo *sig;
 };
 
-struct Nodo *Ptrtemp = NULL;
+struct Nodo *inicio = NULL;
 
 void insertar(int valor) {
-    struct Nodo *Ptr;
-    Ptr = (struct Nodo*) malloc(sizeof(struct Nodo));
 
-    if(Ptr == NULL) {
-        printf("Error no se pudo reserver memory\n");
+    struct Nodo *nuevo;
+    nuevo = (struct Nodo*) malloc(sizeof(struct Nodo));
+
+    if(nuevo == NULL) {
+        printf("Errorcito de memory\n");
         return;
     }
-    Ptrnew ->  n = dato;
 
-    if(Ptrtemp == NULL) {
+    nuevo -> n = valor;
 
-        Ptrnew -> Ptrsig = Ptrnew;
-        Ptrnew -> Ptrant = Ptrnew;
-        Ptrtemp = Ptrnew;
+    if(inicio == NULL) 
+        nuevo -> sig = nuevo;
+        nuevo -> ant = nuevo;
+        inicio = nuevo;
     }
     else {
-        struct Nodo *Ptraux;
+        struct Nodo *ultimo;
+       
+        ultimo = inicio -> ant;
+        nuevo -> sig = inicio;
+        nuevo -> ant = ultimo;
 
-        Ptraux = Ptrtemp -> Ptrant;
-        Ptrnew -> Ptrsig = Ptrtemp;
-        Ptrnew -> Ptrant = Ptraux;
-        Ptraux -> Ptrsig = Ptrnew;
-        Ptrtemp -> Ptrant = Ptrnew;
+        ultimo -> sig = nuevo;
+        inicio -> ant = nuevo;
     }
 }
 
 void eliminar(int valor) {
-
-    if(Ptrtemp == NULL) {
-        printf("Ni hay nothing in the list ):\n");
+    if(inicio == NULL) {
+        printf("No nhay nothing en the list\n");
         return;
     }
 
     struct Nodo *Ptraux;
-    Ptraux = Ptrtemp;
+    Ptraux = inicio;
 
     do {
 
-        if(Ptraux -> n == dato) {
-            if(Ptraux -> Ptrsig == Ptraux) {
-                Ptrtemp = NULL;
+        if(Ptraux -> n == valor) {
+            if(Ptraux -> sig == Ptraux) {
+                inicio = NULL;
             }
             else {
-                Ptraux -> Ptrant -> Ptrsig = Ptraux -> Ptrsig;
-                Ptraux -> Ptrsig -> Ptrant = Ptraux -> Ptrant;
 
-                if(Ptraux == Ptrtemp) {
-                    Ptrtemp = Ptraux -> Ptrsig;
+                Ptraux -> ant -> sig = Ptraux -> sig;
+                Ptraux  ->sig -> ant = Ptraux -> ant;
+
+                if(Ptraux == inicio) {
+                    inicio = Ptraux -> sig;
                 }
             }
+
             free(Ptraux);
             return;
         }
-        Ptraux = Ptraux -> Ptrsig;
 
-    } while(Ptraux != Ptrtemp);
-    printf("No se encontro nada\n");
+        Ptraux = Ptraux -> sig;
+
+    } while(Ptraux != inicio);
 }
 
 void mostrar() {
-    if(Ptrtemp == NULL) {
-        printf("Todavía no hay nd en the list\n");
+
+    if(inicio == NULL) {
+        printf("No hay nd en la lista :(\n");
         return;
     }
 
     struct Nodo *Ptraux;
-    Ptraux = Ptrtemp;
+    Ptraux = inicio;
+
     printf("\nDATOS\n");
-
     do {
-        printf("%d ->", Ptraux -> n);
-        Ptraux = Ptraux -> Ptrsig;
 
-    } while(Ptraux != Ptrtemp);
+        printf("%d ", Ptraux -> n);
+
+    } while(Ptraux != inicio);
 }
 
 int main() {
+
     int opcion;
     int dato;
 
     do {
-        printf("\nMENú\n");
-        printf("1 - Insertar elemento\n");
-        printf("2 - Eliminar elemento\n");
-        printf("3 - Mostrar elementos\n");
-        printf("4 - Salir\n");
-        printf("Elija una opción de chava: ");
+        printf("\nMENÚ\n");
+        printf("1 - Insertar\n");
+        printf("2 - Eliminar\n");
+        printf("3 - Mostrar\n");
+        printf("4 -Salir\n");
+        printf("Eliga una pcion: ");
         scanf("%d", &opcion);
 
         switch(opcion) {
             case 1:
-                printf("Ingrese un dato y así: ");
-                scanf("%d", &dato);
-                insertar(dato);
+                printf("Ingrese un dato: ");
+                scanf("%d", &valor);
+                insertar(valor);
                 break;
 
             case 2:
-                eliminar();
+
+                printf("Ingrese el valor a eliminar: ");
+                scanf("%d", &dato);
+                eliminar(dato);
                 break;
 
             case 3:
@@ -116,12 +124,14 @@ int main() {
                 break;
 
             case 4:
-                printf("Saliendo, bye, see you...\n");
+                printf("Finish\n");
                 break;
 
             default:
-                printf("Opcion invalida de chava bienestar\n");
+
+                printf("Opcion inválida de chava bienestar\n");
         }
+
     } while(opcion != 4);
 
     return 0;
