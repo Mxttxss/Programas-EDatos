@@ -11,7 +11,6 @@ struct Nodo {
 struct Nodo *inicio = NULL;
 
 void insertar(int valor) {
-
     struct Nodo *nuevo;
     nuevo = (struct Nodo*) malloc(sizeof(struct Nodo));
 
@@ -33,7 +32,6 @@ void insertar(int valor) {
         ultimo = inicio -> ant;
         nuevo -> sig = inicio;
         nuevo -> ant = ultimo;
-
         ultimo -> sig = nuevo;
         inicio -> ant = nuevo;
     }
@@ -44,7 +42,6 @@ void eliminar(int valor) {
         printf("No nhay nothing en the list\n");
         return;
     }
-
     struct Nodo *Ptraux;
     Ptraux = inicio;
 
@@ -56,7 +53,6 @@ void eliminar(int valor) {
             else {
                 Ptraux -> ant -> sig = Ptraux -> sig;
                 Ptraux  ->sig -> ant = Ptraux -> ant;
-
                 if(Ptraux == inicio) {
                     inicio = Ptraux -> sig;
                 }
@@ -64,9 +60,7 @@ void eliminar(int valor) {
             free(Ptraux);
             return;
         }
-
         Ptraux = Ptraux -> sig;
-
     } while(Ptraux != inicio);
 }
 
@@ -76,15 +70,12 @@ void mostrar() {
         printf("No hay nd en la lista :(\n");
         return;
     }
-
     struct Nodo *Ptraux;
     Ptraux = inicio;
 
     printf("\nDATOS\n");
     do {
-
         printf("%d ", Ptraux -> n);
-
     } while(Ptraux != inicio);
 }
 
@@ -110,7 +101,6 @@ int main() {
                 break;
 
             case 2:
-
                 printf("Ingrese el valor a eliminar: ");
                 scanf("%d", &dato);
                 eliminar(dato);
@@ -125,7 +115,6 @@ int main() {
                 break;
 
             default:
-
                 printf("Opcion inválida de chava bienestar\n");
         }
 
