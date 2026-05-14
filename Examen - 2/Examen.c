@@ -22,7 +22,7 @@ void insertar(int valor) {
 
     nuevo -> n = valor;
 
-    if(inicio == NULL) 
+    if(inicio == NULL) {
         nuevo -> sig = nuevo;
         nuevo -> ant = nuevo;
         inicio = nuevo;
@@ -49,13 +49,11 @@ void eliminar(int valor) {
     Ptraux = inicio;
 
     do {
-
         if(Ptraux -> n == valor) {
             if(Ptraux -> sig == Ptraux) {
                 inicio = NULL;
             }
             else {
-
                 Ptraux -> ant -> sig = Ptraux -> sig;
                 Ptraux  ->sig -> ant = Ptraux -> ant;
 
@@ -63,7 +61,6 @@ void eliminar(int valor) {
                     inicio = Ptraux -> sig;
                 }
             }
-
             free(Ptraux);
             return;
         }
@@ -108,8 +105,8 @@ int main() {
         switch(opcion) {
             case 1:
                 printf("Ingrese un dato: ");
-                scanf("%d", &valor);
-                insertar(valor);
+                scanf("%d", &dato);
+                insertar(dato);
                 break;
 
             case 2:
