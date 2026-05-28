@@ -15,9 +15,35 @@ struct arbol* crearNodo(){
     }
     printf("Ingrese el dato: ");
     scanf("%d", &rama -> dato);
+
+    rama -> Izq = NULL; 
+    rama -> Der = NULL; 
     return rama;
 }
 
+void inorden(struct arbol *raiz){
+    if( raiz != NULL){
+        inorden(raiz -> Izq);
+        printf("%d ", raiz->dato);
+        inorden(raiz -> Der);
+    }
+}
+
+void preorden(struct arbol *raiz){
+    if(raiz != NULL){
+        printf("%d ", raiz -> dato);
+        preorden(raiz -> Izq);
+        preorden(raiz -> Der);
+    }
+}
+
+void postorden(struct arbol *raiz){
+    if(raiz != NULL){
+        postorden(raiz -> Izq);
+        postorden(raiz -> Der);
+        printf("%d ", raiz -> dato);
+    }
+}
 
 int main(){
     struct arbol *raiz;
@@ -50,8 +76,7 @@ int main(){
                             if(Ptraux -> Izq == NULL){
                                 Ptraux -> Izq = Ptrtemp;
                                 break;
-                            }
-                            else{
+                            }else{
                                 Ptraux = Ptraux -> Izq;
                             }
                         }
@@ -72,6 +97,16 @@ int main(){
                 if(raiz == NULL){
                     printf("No hay nd en el arboluchis ):");
                 }else{
+                    printf("Pre - Orden"); 
+                    preorden(raiz); 
+
+                    printf("In - Orden");
+                    inorden(raiz); 
+
+                    printf("Post - Orden"); 
+                    postorden(raiz); 
+
+                    printf("
                 }
             break;
 
