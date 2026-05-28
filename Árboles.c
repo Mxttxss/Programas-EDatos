@@ -105,8 +105,6 @@ int main(){
 
                     printf("Post - Orden"); 
                     postorden(raiz); 
-
-                    printf("
                 }
             break;
 
