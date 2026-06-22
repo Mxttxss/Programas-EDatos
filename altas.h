@@ -1,69 +1,48 @@
 
 #include <stdio.h>
+#include <stdlib.h>
 
-void altas(struct Persona **);
+struct Persona *PtrP;
+struct Alumno *PtrA;
 
-void altas(struct Persona **Ptr){
+int altas(struct Persona **Ptr){
     struct Persona *PtrAux;
 
+    struct Persona nuevaPersona(){
+        struct Persona *P;
+        P = (struct Persona *)malloc(sizeof(struct Persona));
+        return P;
+    }
+
+    struct Alumno nuevoAlumno(){
+        struct Alumno *A;
+        A = (struct Alumno *)malloc(sizeof(struct Alumno)); 
+        return A;
+    }
+
+printf("\nPERSONA\n"); 
+printf("Nombre: ");
+scanf("%s", P -> nombre); 
+printf("Edad: ");
+scanf("%d", &P -> edad); +
+printf("Género: ");
+scanf("%c", &P -> genero);
+printf("Fecha de nacimiento: [DD/MM/AAAA] ");
+scanf("%s", P -> fecha); 
+
+printf("\nALUMNO\n");
+printf("Matricula: "); 
+scanf("%s", A -> matricula);
+printf("Carrera: ");
+scanf("%d", &A -> carrera); 
+printf("Correo: "); 
+
+for(int i=0; i<5; i++){
+    for(int j=0; j<5; j++{
+        printf("Calificaciones [%d][%d]: ", i, j); 
+        scanf("%f", &A -> calif[i][j]); 
+    }
 }
+    
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-void altas(struct Persona **ptr)
-{
-    struct Persona *nuevo;
-    struct Persona *aux;
-
-    nuevo = (struct Persona *)malloc(sizeof(struct Persona));
-
-    if(nuevo == NULL)
-    {
-        printf("Error al reservar memoria\n");
-        return;
-    }
-
-    nuevo->nombre = (char *)malloc(50*sizeof(char));
-
-    if(nuevo->nombre == NULL)
-    {
-        printf("Error al reservar memoria\n");
-        free(nuevo);
-        return;
-    }
-
-    printf("\nIngrese nombre: ");
-    scanf(" %[^\n]", nuevo->nombre);
-
-    printf("Ingrese edad: ");
-    scanf("%d", &nuevo->edad);
-
-    printf("Ingrese genero (M/F): ");
-    scanf(" %c", &nuevo->genero);
-
-    printf("Ingrese fecha de nacimiento: ");
-    scanf("%s", nuevo->fecha);
-
-    nuevo->ptrAl = NULL;
-    nuevo->ptrSig = NULL;
-
-    if(*ptr == NULL)
-    {
-        *ptr = nuevo;
-    }
-    else
-    {
-        aux = *ptr;
-
-        while(aux->ptrSig != NULL)
-        {
-            aux = aux->ptrSig;
-        }
-
-        aux->ptrSig = nuevo;
-    }
-
-    printf("\nPersona registrada correctamente.\n");
 }
