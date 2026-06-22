@@ -8,33 +8,34 @@
 struct Persona *nuevaPersona();
 struct Alumno *nuevoAlumno();
 
+int altas(struct Persona **Ptr);
+
 int altas(struct Persona **Ptr){
     struct Persona *P = NULL; 
     struct Alumno *A = NULL; 
 
-    P = nuevaPersona();
+    int b = 1; 
 
+    P = nuevaPersona();
     if(P == NULL){
         printf("Error, no se pudo crear :(");
-        return 0; 
-    }
-
-    A = nuevoAlumno();
+        b = 0; 
+    }else{
+        A = nuevoAlumno();
+        if(A == NULL){
+            b = 0;
+            free(P);    
+    }else{
+        P->PtrAl = A; 
+        P->PtrSig = *Ptr;
+        *Ptr = P; 
+        }
     
-    if(A == NULL){
-       free(P);
-       return 0; 
-    }
-    
-    P->PtrAl = A; 
-    P->PtrSig = *Ptr;
-    *Ptr = P; 
-
-    return 1; 
+    return 0;
 }
 
 struct Persona *nuevaPersona(){
-    struct Persona *P;
+    struct Persona *P; 
 
         P = (struct Persona *)malloc(sizeof(struct Persona));
         if (P == NULL){
@@ -50,7 +51,7 @@ struct Persona *nuevaPersona(){
         scanf("%c", &P -> genero);
         printf("Fecha de nacimiento: [DD/MM/AAAA] ");
         scanf("%s", P -> fecha); 
-        
+
         return P;
     } 
 
@@ -74,6 +75,7 @@ struct Alumno nuevoAlumno(){
             }
         }
 
+}
 }
 
 #endif
