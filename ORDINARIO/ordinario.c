@@ -1,26 +1,4 @@
 
-#ifndef STRUCTS_H
-#define STRUCTS_H
-
-struct Persona{
-    char *nombre;
-    int edad;
-    char genero; 
-    char fecha[12];
-    struct Alumno *PtrAl; 
-    struct Persona *PtrSig; 
-};
-
-struct Alumno{
-    char matricula[10];
-    int carrera;
-    int semestre;
-    char correo[13]; 
-    float calif[5][5]; 
-}; 
-
-#endif
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -49,17 +27,37 @@ int main(void){
         case 2:
             switch(menuBajas()){
                 case 1:
-                    //bajaPersona(&Ptr);
+                    bajaPersona(&Ptr);
                     break;
                 case 2:
-                    //bajaPersonas(&Ptr);
+                    bajaPersonas(&Ptr);
                     break;
                 case 3:
-                    //bajaTodos(&Ptr);
+                    bajaTodos(&Ptr);
                     break; 
                 }
             break; 
         case 3: 
+            switch(menuMostrar()){
+                case 1:
+                    mostrarTodos(Ptr);
+                    break;
+                case 2:
+                    mostrarCarrera(Ptr);
+                    break;
+                case 3:
+                    mostrarSemestre(Ptr);
+                    break;
+                case 4:
+                    mostrarCarrerasemestre(Ptr);
+                    break; 
+                case 5:
+                    mostrarNombre(Ptr);
+                    break;
+                case 6: 
+                    mostrarMatricula(Ptr);
+                    break; 
+                }
             break; 
         case 4: 
             break; 
