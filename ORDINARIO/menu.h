@@ -61,4 +61,21 @@ int menuBajas(void){
     return op;
 }
 
+int menuMostrar(){
+
+    int op;
+    printf("\nMOSTRAR");
+    printf("\n1 - Todas las persona");
+    printf("\n2 - Carrera");
+    printf("\n3 - Semestre");
+    printf("\n4 - Carrera y semestre");
+    printf("\n5 - Nombre");
+    printf("\n6 - Matricula");
+    printf("\n7 - Salir");
+    printf("\nSeleccione una opcion: ");
+    scanf("%d",&op);
+
+    return op;
+}
+
 #endif
