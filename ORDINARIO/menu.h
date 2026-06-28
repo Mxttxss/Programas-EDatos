@@ -61,7 +61,7 @@ int menuBajas(void){
     return op;
 }
 
-int menuMostrar(){
+int menuMostrar(void){
 
     int op;
     printf("\nMOSTRAR");
@@ -78,4 +78,15 @@ int menuMostrar(){
     return op;
 }
 
+int menuFunciones(void){
+
+    int op; 
+    printf("FUNCIONES ESPECIALES");
+    printf("\n1 - Modificar");
+    printf("\n2 - Calificaciones"); 
+    printf("\n3 - Salir"); 
+
+    return op;
+}
+    
 #endif
