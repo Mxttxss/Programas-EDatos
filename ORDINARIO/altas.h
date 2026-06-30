@@ -7,6 +7,7 @@
 #include <string.h>
 #include <time.h>
 #include "menu.h"
+#include "structs.h"
 
 struct Persona *nuevaPersona();
 struct Alumno *nuevoAlumno();
@@ -73,8 +74,10 @@ struct Alumno *nuevoAlumno(){
         printf("\nALUMNO\n");
         printf("Matricula: "); 
         scanf("%s", A->matricula);
-        
         A->carrera = menuCarreras();
+        printf("Semestre: ");
+        scanf("%d", &A->semestre);
+        
         switch(A->carrera){
             case 1:
                 strcpy(A->correo, "CA");
