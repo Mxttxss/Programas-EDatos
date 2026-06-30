@@ -1,24 +1,23 @@
 
-include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "structs.h"
 #include "menu.h"
 
-void mostrar(struct Persona *Aux){
+void mostrar(struct Persona *PtrAux){
     printf("\nPERSONA");
-    printf("\nNombre: %s", Aux->nombre);
-    printf("\nEdad: %d", Aux->edad);
-    printf("\nGenero: %c", Aux->genero);
-    printf("\nFecha: %s", Aux->fecha);
+    printf("\nNombre: %s", PtrAux->nombre);
+    printf("\nEdad: %d", PtrAux->edad);
+    printf("\nGenero: %c", PtrAux->genero);
+    printf("\nFecha: %s", PtrAux->fecha);
 
 
     printf("\nALUMNO");
-    printf("\nMatricula: %s", Aux->PtrAl->matricula);
-    printf("\nCarrera: %d", Aux->PtrAl->carrera);
-    printf("\nSemestre: %d", Aux->PtrAl->semestre);
-    printf("\nCorreo: %s@unsij.edu.mx", Aux->PtrAl->correo);
-    printf("\n");
+    printf("\nMatricula: %s", PtrAux->PtrAl->matricula);
+    printf("\nCarrera: %d", PtrAux->PtrAl->carrera);
+    printf("\nSemestre: %d", PtrAux->PtrAl->semestre);
+    printf("\nCorreo: %s@unsij.edu.mx", PtrAux->PtrAl->correo);
 }
 
 int mostrarTodos(struct Persona *Ptr){
@@ -28,8 +27,6 @@ int mostrarTodos(struct Persona *Ptr){
     }
     return 0;
 }
-
-
 
 int mostrarCarrera(struct Persona *Ptr){
     int carrera;
