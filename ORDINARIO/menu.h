@@ -81,12 +81,98 @@ int menuMostrar(void){
 int menuFunciones(void){
 
     int op; 
-    printf("FUNCIONES ESPECIALES");
+    printf("\nFUNCIONES ESPECIALES");
     printf("\n1 - Modificar");
     printf("\n2 - Calificaciones"); 
     printf("\n3 - Salir"); 
+    printf("\nSeleccione una opción: ");
+    scanf("%d", &op); 
+    return op;
+}
+
+int menuModificar(void){
+
+    int op;
+    printf("\nMODIFICAR");
+    printf("\n1 - Calificaciones del alumno");
+    printf("\n2 - Datos");
+    printf("\n3 - Salir");
+    printf("\nSeleccione una opción: ");
+    scanf("%d",&op);
 
     return op;
 }
-    
+
+int menuCalif(void){
+
+    int op;
+    printf("\nCALIFICACIONES");
+    printf("\n1 - Parcial");
+    printf("\n2 - Materia");
+    printf("\nSeleccione una opción: ");
+    scanf("%d",&op);
+
+    return op;
+}
+
+int menuDatos(void){
+
+    int op;
+    printf("\nDATOS");
+    printf("\n1 - Persona");
+    printf("\n2 - Alumno");
+    printf("\nSeleccione una opción: ");
+    scanf("%d",&op);
+
+    return op;
+}
+
+int menuCalificaciones(void){
+
+    int op;
+    printf("\nCALIFICACIONES");
+    printf("\n1 - Semestre");
+    printf("\n2 - Carrera");
+    printf("\nSeleccione una opción: ");
+    scanf("%d",&op);
+
+    return op;
+}
+
+int menuSemestre(void){
+
+    int op;
+    printf("\nSEMESTRE");
+    printf("\n1 - Materia");
+    printf("\n2 - Parcial");
+    printf("\nSeleccione opcion: ");
+    scanf("%d",&op);
+
+    return op;
+}
+
+int menuCarrera(void){
+
+    int op;
+    printf("\nCARRERA");
+    printf("\n1 - Sin adeudos");
+    printf("\n2 - Maximo 3 adeudos");
+    printf("\n3 - Mas de 4 adeudos");
+    printf("\nSeleccione una opcion: ");
+    scanf("%d",&op);
+
+    return op;
+}
+
+int menuSalir(void){
+    int op; 
+    printf("\nDesea salir?");
+    printf("\n1 - Si"); 
+    printf("\n2 - No"); 
+    printf("\nSeleccione una opción: "); 
+    scanf("%d", &op); 
+
+    return op; 
+}
+
 #endif
