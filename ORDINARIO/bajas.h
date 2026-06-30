@@ -20,7 +20,7 @@ int bajaPersona(struct Persona **Ptr){
     free(PtrAux->nombre);
     free(PtrAux->PtrAl);
     free(PtrAux);
-    printf("Se elimino a la persona");
+    printf("Se elimino a la persona\n");
 
     return 0;
 }
@@ -28,7 +28,7 @@ int bajaPersona(struct Persona **Ptr){
 int bajaPersonas(struct Persona **Ptr){
     int op = 1;
     if(*Ptr == NULL){
-        printf("\nNo hay personas");
+        printf("No hay personas\n");
         return 0;
     }
 
@@ -40,7 +40,7 @@ int bajaPersonas(struct Persona **Ptr){
         printf("\nDesea eliminar otra persona?");
         printf("\n1 - Si");
         printf("\n2 - No");
-        printf("\nSeleccione: ");
+        printf("\nSeleccione una opción: ");
         scanf("%d", &op);
     }
 
@@ -49,14 +49,13 @@ int bajaPersonas(struct Persona **Ptr){
 
 int bajaTodos(struct Persona **Ptr){
     if(*Ptr == NULL){
-        printf("\nNo hay personas");
+        printf("No hay personas\n");
         return 0;
     }
     while(*Ptr != NULL){
         bajaPersona(Ptr);
-
     }
-    printf("\nTodas las personas fueron eliminadas");
+    printf("Todas las personas fueron eliminadas\n");
 
     return 0;
 }
