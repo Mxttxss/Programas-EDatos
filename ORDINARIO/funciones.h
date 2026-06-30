@@ -97,13 +97,13 @@ struct Persona *buscarAlumno(struct Persona *Ptr){
     scanf("%s", matricula);
 
     while(Ptr != NULL){
-        int igual = 1;
+        int dato = 1;
         for(int i=0; i<10; i++){
             if(matricula[i] != Ptr->PtrAl->matricula[i]){
-                igual = 0;
+                dato = 0;
             }
         }
-        if(igual == 1){
+        if(dato == 1){
             return Ptr;
         }
 
